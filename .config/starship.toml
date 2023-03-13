@@ -2,9 +2,9 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Prompt format
-format = """$os$username$hostname$directory$git_branch$git_status$git_commit$git_state$character\u001b7${fill}$python$kotlin$gradle$time\u001b8"""
+format = """$os$username$hostname$directory$git_branch$git_status$git_commit$git_state$character\u001b7${fill}$status$python$kotlin$gradle$time\u001b8"""
 #format = """$os$username$hostname$directory$git_branch$git_status$git_commit$git_state$character"""
-right_format = """$python$kotlin$gradle$time"""
+right_format = """$status$python$kotlin$gradle$time"""
 
 # Inserts a blank line between shell prompts
 add_newline = false
@@ -88,6 +88,13 @@ am_or_rebase = 'AM/REBASE'
 
 [git_metrics]
 disabled = true
+
+[status]
+format = '[$symbol$status]($style) '
+style = 'bold red'
+symbol = '⚡'
+success_symbol = ''
+disabled = false
 
 [python]
 format = '[(\($virtualenv\) )](bold blue)[$symbol( $version)]($style) '
