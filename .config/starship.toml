@@ -45,7 +45,7 @@ format = '[$path]($style)[$read_only]($read_only_style) '
 style = 'bold cyan'
 read_only = " \uf023"
 read_only_style = 'yellow'
-truncation_symbol = "\ue5ff\\"
+truncation_symbol = "\ue5ff/"
 
 [git_branch]
 format = '[$symbol$branch(:$remote_branch)]($style)'
