@@ -5,6 +5,7 @@
 format = """$os$username$hostname$directory$git_branch$git_status$git_commit$git_state$character\u001b7${fill}$status$python$kotlin$gradle$time\u001b8"""
 #format = """$os$username$hostname$directory$git_branch$git_status$git_commit$git_state$character"""
 right_format = """$status$python$kotlin$gradle$time"""
+continuation_prompt = '[>](bold yellow) '
 
 # Inserts a blank line between shell prompts
 add_newline = false
