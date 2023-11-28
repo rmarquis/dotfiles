@@ -93,7 +93,7 @@ disabled = true
 [status]
 format = '[$symbol$status]($style) '
 style = 'bold red'
-symbol = '⚡'
+symbol = '↯'
 success_symbol = ''
 disabled = false
 
