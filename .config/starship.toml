@@ -2,9 +2,9 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Prompt format
-format = """$os$username$hostname$directory$git_branch$git_status$git_commit$git_state$character\u001b7${fill}$status$python$kotlin$gradle$time\u001b8"""
+format = """$os$username$hostname$directory$git_branch$git_status$git_commit$git_state$character\u001b7${fill}$status$python$kotlin$gradle$zig$time\u001b8"""
 #format = """$os$username$hostname$directory$git_branch$git_status$git_commit$git_state$character"""
-right_format = """$status$python$kotlin$gradle$time"""
+right_format = """$status$python$kotlin$gradle$zig$time"""
 continuation_prompt = '[>](bold yellow) '
 
 # Inserts a blank line between shell prompts
@@ -114,6 +114,12 @@ format = '[$symbol( $version)]($style) '
 version_format = '${raw}'
 symbol = "\ue660"
 style = 'bold bright-cyan'
+
+[zig]
+format = '[$symbol( $version)]($style) '
+version_format = '${raw}'
+symbol = "\uf0e7"
+style = 'bold yellow'
 
 [time]
 format = '[$time]($style)'
