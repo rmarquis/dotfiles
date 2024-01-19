@@ -64,7 +64,7 @@ up_to_date = "[\u2261](bold green)" # ''
 conflicted = "[\ue728$count](bold red)" # '='
 untracked = " [?$count](bold red)" # \uf044
 stashed = " [^$count](bold cyan)" # \uf692
-modified = " [~$count](bold red)" # '!' \uf046
+modified = " [~$count](bold yellow)" # '!' \uf046
 staged = " [+$count](bold yellow)" # '+' \uf044
 renamed = " [»$count](bold yellow)" # '»'
 deleted = " [-$count](bold red)" # '✘' \uf046
