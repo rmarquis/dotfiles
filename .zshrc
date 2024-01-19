@@ -15,6 +15,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 unsetopt beep
 bindkey -v
+bindkey "^[[3~" delete-char
 
 # compinstall
 zstyle :compinstall filename '/home/remy/.zshrc'
