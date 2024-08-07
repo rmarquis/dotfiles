@@ -8,6 +8,9 @@ eval "$(starship init zsh)"
 # editor
 export EDITOR=nvim
 export VISUAL=nvim
+export SUDO_EDITOR=nvim
+export SYSTEMD_EDITOR=nvim
+export GIT_EDITOR=nvim
 
 # zsh
 HISTFILE=~/.histfile
