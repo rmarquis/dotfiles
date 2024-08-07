@@ -26,7 +26,7 @@ autoload -Uz compinit
 compinit
 
 # colors
-export GREP_COLOR="1;33"
+export GREP_COLORS="1;33"
 export LESS="-R"
 eval $(dircolors -b)
 alias grep='grep --color=auto'
