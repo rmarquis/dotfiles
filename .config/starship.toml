@@ -17,6 +17,7 @@ symbol = " "
 format = '$symbol '
 success_symbol = '[>](bold white)'
 error_symbol = '[>](bold red)'
+vimcmd_symbol = '[<](bold yellow)'
 
 [os]
 format = '[$symbol ]($style)'
