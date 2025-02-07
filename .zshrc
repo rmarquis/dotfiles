@@ -28,6 +28,11 @@ zstyle :compinstall filename '/home/remy/.zshrc'
 autoload -Uz compinit
 compinit
 
+# autosuggestions
+if [ -f '/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh' ]; then
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
 # colors
 export GREP_COLORS="1;33"
 export LESS="-R"
