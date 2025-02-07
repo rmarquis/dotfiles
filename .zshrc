@@ -19,6 +19,9 @@ SAVEHIST=1000
 unsetopt beep
 bindkey -v
 bindkey "^[[3~" delete-char
+bindkey '^R' history-incremental-search-backward
+bindkey '^P' up-line-or-history
+bindkey '^N' down-line-or-history
 
 # compinstall
 zstyle :compinstall filename '/home/remy/.zshrc'
