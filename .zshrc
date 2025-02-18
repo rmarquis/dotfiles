@@ -1,8 +1,15 @@
 #
 # ~/.zshrc
 #
+#
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
 # prompt
+#PS1='%B%F{white}%n%f%F{cyan}@%f%F{white}%m%f%F{cyan}:%f%b%~ %B%F{cyan}%(!.#.>)%f%b '
+#PS2="%B%F{cyan}>%f%b "
+#RPROMPT='%B%(?..%F{red}%?%f)%b %F{white}%T%f'
+#PROMPT_EOL_MARK=''
 eval "$(starship init zsh)"
 
 # editor
