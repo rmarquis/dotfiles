@@ -1,0 +1,29 @@
+[user]
+    name = Rémy Marquis
+    email = remy.marquis@gmail.com
+[init]
+    defaultBranch = main
+[credential]
+    helper = store
+[core]
+    autocrlf = input
+    editor = nvim
+[diff]
+    colormoved = "default"
+    colormovedws = "allow-indentation-change"
+[alias]
+    st = status
+    co = checkout
+    cp = cherry-pick
+    cm = commit
+    df = diff
+    fe = fetch
+    lg = log --oneline --graph --decorate
+    me = merge
+    pl = pull
+    pu = push
+    rb = rebase
+    ri = rebase -i
+    rs = reset
+    un = reset HEAD --
+    sw = switch
