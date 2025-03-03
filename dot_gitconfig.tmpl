@@ -6,7 +6,11 @@
 [credential]
     helper = store
 [core]
+{{- if eq .chezmoi.os "linux" }}
     autocrlf = input
+{{- else }}
+    autocrlf = true
+{{- end }}
     editor = nvim
     fsmonitor = true
     untrackedcache = true
