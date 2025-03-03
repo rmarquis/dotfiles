@@ -1,0 +1,9 @@
+# Settings apply across all Linux distros running on WSL 2
+[wsl2]
+memory=24GB
+processors=20
+
+[experimental]
+autoMemoryReclaim=gradual
+sparseVhd=true
+
