@@ -1,0 +1,80 @@
+#
+# ~/.zshrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# editor
+export EDITOR=nvim
+export VISUAL=nvim
+export SUDO_EDITOR=nvim
+export SYSTEMD_EDITOR=nvim
+export GIT_EDITOR=nvim
+
+# prompt
+eval "$(starship init zsh)"
+
+# zsh
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+unsetopt beep
+bindkey -v
+bindkey "^[[3~" delete-char
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^P' up-line-or-history
+bindkey '^N' down-line-or-history
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^U' backward-kill-line
+bindkey '^K' kill-line
+bindkey '^B' backward-char
+bindkey '^F' forward-char
+bindkey 'M-F' forward-word
+bindkey 'M-B' backward-word
+bindkey '^H' backward-delete-char
+bindkey '^W' backward-delete-word
+bindkey '^Y' yank
+
+# compinstall
+zstyle :compinstall filename '/home/remy/.zshrc'
+autoload -Uz compinit
+compinit
+
+# autosuggestions
+if [ -f '/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh' ]; then
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+# syntax highlighting
+if [ -f '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' ]; then
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# hardware acceleration (intel|nvidia)
+LIBVA_DRIVER_NAME="iHD" # iHD|nvidia
+VDPAU_DRIVER="va_gl" # va_gl|nvidia
+
+# colors
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ip='ip -color=auto'
+alias ls='ls --color=auto'
+eval $(dircolors -b)
+
+# colored man pages
+export LESS='-R --use-color -Dd+C$DuR$'
+export MANPAGER='less -R --use-color -Dd+C -DuR'
+export MANROFFOPT="-P -c"
+
+# safety
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias ln='ln -i'
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
