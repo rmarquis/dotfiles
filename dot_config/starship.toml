@@ -1,0 +1,131 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Prompt format
+format = """$os$username$hostname$directory$git_branch$git_status$git_commit$git_state$character\u001b7"""
+right_format = """$status$python$kotlin$gradle$zig$time"""
+continuation_prompt = '[>](bold yellow) '
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+[fill]
+symbol = " "
+
+[character]
+format = '$symbol '
+success_symbol = '[>](bold white)'
+error_symbol = '[>](bold red)'
+vimcmd_symbol = '[<](bold yellow)'
+
+[os]
+format = '[$symbol ]($style)'
+style = 'bold blue'
+disabled = false
+
+[os.symbols]
+Arch = "\uf303"
+Linux = "\uf17c"
+Macos = "\uf179"
+Windows = "\uf17a"
+
+[username]
+format = '[$user]($style) '
+style_root = 'bold red'
+style_user = 'bold white'
+show_always = true
+
+[hostname]
+format = '[$ssh_symbol$hostname]($style) '
+style = 'bold dimmed white'
+ssh_symbol = "\ueb01"
+ssh_only = true
+
+[directory]
+format = '[$path]($style)[$read_only]($read_only_style) '
+style = 'bold cyan'
+read_only = " \uf023"
+read_only_style = 'yellow'
+truncation_symbol = "\ue5ff/"
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style)'
+symbol = "\ue0a0"
+style = 'bold green'
+
+[git_status]
+# all_status == $conflicted$stashed$deleted$renamed$modified$staged$untracked
+format = '([$ahead_behind$conflicted$untracked$modified$deleted$staged$renamed$stashed]($style) )'
+style = 'bold red'
+ahead = "[\u2191$count](bold blue)" # '⇡'
+behind = "[\u2193$count](bold purple)" # '⇣'
+diverged = "[\u2191$ahead_count\u2193$behind_count](bold red)" # '⇕'
+up_to_date = "[\u2261](bold green)" # ''
+conflicted = "[\ue728$count](bold red)" # '='
+untracked = " [?$count](bold red)" # \uf044
+stashed = " [^$count](bold cyan)" # \uf692
+modified = " [~$count](bold yellow)" # '!' \uf046
+staged = " [+$count](bold yellow)" # '+' \uf044
+renamed = " [»$count](bold yellow)" # '»'
+deleted = " [-$count](bold red)" # '✘' \uf046
+ignore_submodules = false
+windows_starship = '/mnt/c/Program Files/starship/bin/starship.exe'
+
+[git_commit]
+format = "[\uf417$hash]($style)[$tag](bold yellow) "
+tag_symbol = " \uf412 "
+tag_disabled = false
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = 'bold yellow'
+rebase = "\ue728 REBASING"
+merge = "\ue727 MERGING"
+revert = "\uf0e2 REVERTING"
+cherry_pick = "\uE29B CHERRY-PICKING"
+bisect = 'BISECTING'
+am = 'AM'
+am_or_rebase = 'AM/REBASE'
+
+[git_metrics]
+disabled = true
+
+[status]
+format = '[$symbol$status]($style) '
+style = 'bold red'
+symbol = '↯'
+success_symbol = ''
+disabled = false
+
+[python]
+format = '[(\($virtualenv\) )](bold blue)[$symbol( $version)]($style) '
+version_format = '${raw}'
+symbol = "\ue235"
+style = 'bold yellow'
+
+[kotlin]
+format = '[$symbol( $version)]($style) '
+version_format = '${raw}'
+symbol = "\ue634"
+style = 'bold purple'
+
+[gradle]
+format = '[$symbol( $version)]($style) '
+version_format = '${raw}'
+symbol = "\ue660"
+style = 'bold bright-cyan'
+
+[zig]
+format = '[$symbol( $version)]($style) '
+version_format = '${raw}'
+symbol = "\uf0e7"
+style = 'bold yellow'
+
+[time]
+format = '[$time]($style)'
+style = 'bold dimmed white'
+disabled = false
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
