@@ -1,0 +1,38 @@
+[user]
+    name = Rémy Marquis
+    email = {{ .email }}
+[init]
+    defaultBranch = main
+[credential]
+    helper = store
+[core]
+    autocrlf = input
+    editor = nvim
+    fsmonitor = true
+    untrackedcache = true
+[diff]
+    colormoved = "default"
+    colormovedws = "allow-indentation-change"
+[status]
+    showuntrackedfiles = all
+[alias]
+    st = status
+    co = checkout
+    cp = cherry-pick
+    cm = commit
+    df = diff
+    fe = fetch
+    lg = log --oneline --graph --decorate
+    me = merge
+    pl = pull
+    pu = push
+    rb = rebase
+    ri = rebase -i
+    rs = reset
+    un = reset HEAD --
+    sw = switch
+[filter "lfs"]
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
