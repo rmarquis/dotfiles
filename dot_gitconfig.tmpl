@@ -20,21 +20,29 @@
 [status]
     showuntrackedfiles = all
 [alias]
-    st = status
+    ad = add
+    ap = add -p
+    br = branch
     co = checkout
     cp = cherry-pick
-    cm = commit
+    cm = commit -m
     df = diff
     fe = fetch
+    fp = fetch -p
     lg = log --oneline --graph --decorate
     me = merge
     pl = pull
-    pu = push
+    ps = push
     rb = rebase
     ri = rebase -i
+    rt = remote
     rs = reset
     un = reset HEAD --
+    st = status
+    sh = stash
+    sl = stash list
     sw = switch
+    tg = tag
 [filter "lfs"]
     process = git-lfs filter-process
     required = true
