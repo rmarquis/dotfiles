@@ -12,9 +12,6 @@ export SUDO_EDITOR=nvim
 export SYSTEMD_EDITOR=nvim
 export GIT_EDITOR=nvim
 
-# prompt
-eval "$(starship init zsh)"
-
 # zsh
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -37,6 +34,39 @@ bindkey 'M-B' backward-word
 bindkey '^H' backward-delete-char
 bindkey '^W' backward-delete-word
 bindkey '^Y' yank
+
+# prompt
+COMMON_PROMPT='%B%F{white}%n%f%F{cyan}@%f%F{white}%m%f%F{cyan}:%f%b%~ '
+
+# update prompt based on vim mode
+function zle-line-init zle-keymap-select {
+case ${KEYMAP} in
+    vicmd)
+        PS1="${COMMON_PROMPT}%B%F{yellow}%(!.#.<)%f%b "
+	echo -ne '\e[2 q'
+        ;;
+    viins|main|*)
+        PS1="${COMMON_PROMPT}%B%F{cyan}%(!.#.>)%f%b "
+	echo -ne '\e[4 q'
+        ;;
+esac
+zle reset-prompt
+}
+
+# register ZLE functions
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+# initial prompt
+PS1="${COMMON_PROMPT}%B%F{cyan}%(!.#.>)%f%b "
+PS2='%B%F{yellow}>%f%b '
+RPROMPT='%B%(?..%F{red}%?%f)%b %F{white}%T%f'
+PROMPT_EOL_MARK=''
+
+# starship
+if [ -f '/usr/bin/starship' ]; then
+    eval "$(starship init zsh)"
+fi
 
 # compinstall
 zstyle :compinstall filename '/home/remy/.zshrc'
