@@ -13,10 +13,17 @@ export SYSTEMD_EDITOR=nvim
 export GIT_EDITOR=nvim
 
 # zsh
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTFILE=~/.zsh_histfile
+HISTSIZE=5000
+SAVEHIST=5000
+setopt extended_history
+setopt share_history
+setopt hist_ignore_dups
+setopt extended_glob
+setopt correct
 unsetopt beep
+
+# keybinds
 bindkey -v
 bindkey "^[[3~" delete-char
 bindkey '^R' history-incremental-search-backward
@@ -70,18 +77,20 @@ fi
 
 # compinstall
 zstyle :compinstall filename '/home/remy/.zshrc'
+
+# completion
 autoload -Uz compinit
 compinit
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-# autosuggestions
-if [ -f '/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh' ]; then
-    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
-
-# syntax highlighting
-if [ -f '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' ]; then
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+# plugins
+plugins=(
+    /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+)
+for plugin in $plugins; do
+    [[ -f $plugin ]] && source $plugin
+done
 
 # hardware acceleration (intel|nvidia)
 LIBVA_DRIVER_NAME="iHD" # iHD|nvidia
