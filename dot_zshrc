@@ -17,10 +17,8 @@ HISTFILE=~/.zsh_histfile
 HISTSIZE=5000
 SAVEHIST=5000
 setopt extended_history
-setopt share_history
 setopt hist_ignore_dups
 setopt extended_glob
-setopt correct
 unsetopt beep
 
 # keybinds
