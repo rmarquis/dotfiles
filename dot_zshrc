@@ -65,7 +65,7 @@ zle -N zle-keymap-select
 # initial prompt
 PS1="${COMMON_PROMPT}%B%F{cyan}%(!.#.>)%f%b "
 PS2='%B%F{yellow}>%f%b '
-RPROMPT='%B%(?..%F{red}%?%f)%b %F{white}%T%f'
+RPROMPT='%B%(?..%F{red}%?%f)%b %F{white}%*%f'
 PROMPT_EOL_MARK=''
 
 # starship
