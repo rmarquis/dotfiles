@@ -41,6 +41,9 @@ bindkey '^W' backward-delete-word
 bindkey '^Y' yank
 
 # prompt
+if [ -f '/usr/bin/starship' ]; then
+    eval "$(starship init zsh)"
+else
 COMMON_PROMPT='%B%F{white}%n%f%F{cyan}@%f%F{white}%m%f%F{cyan}:%f%b%~ '
 
 # update prompt based on vim mode
@@ -67,10 +70,6 @@ PS1="${COMMON_PROMPT}%B%F{cyan}%(!.#.>)%f%b "
 PS2='%B%F{yellow}>%f%b '
 RPROMPT='%B%(?..%F{red}%?%f)%b %F{white}%*%f'
 PROMPT_EOL_MARK=''
-
-# starship
-if [ -f '/usr/bin/starship' ]; then
-    eval "$(starship init zsh)"
 fi
 
 # compinstall
