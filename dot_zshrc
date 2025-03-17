@@ -13,7 +13,7 @@ export SYSTEMD_EDITOR=nvim
 export GIT_EDITOR=nvim
 
 # zsh
-HISTFILE=~/.zsh_histfile
+HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
 setopt extended_history
