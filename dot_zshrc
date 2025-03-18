@@ -43,6 +43,7 @@ bindkey '^Y' yank
 # prompt
 if [ -f '/usr/bin/starship' ]; then
     eval "$(starship init zsh)"
+    PROMPT_EOL_MARK=''
 else
 COMMON_PROMPT='%B%F{white}%n%f%F{cyan}@%f%F{white}%m%f%F{cyan}:%f%b%~ '
 
