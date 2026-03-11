@@ -2,8 +2,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Prompt format
-format = """$os$username$hostname$directory$git_branch$git_status$git_commit$git_state$character\u001b7"""
-right_format = """$status$python$kotlin$gradle$zig$time"""
+format = """$os$username$hostname$directory($status$python$kotlin$gradle$zig)$time$git_branch$git_status$git_commit$git_state$character\u001b7"""
 continuation_prompt = '[>](bold yellow) '
 
 # Inserts a blank line between shell prompts
@@ -55,7 +54,7 @@ style = 'bold green'
 
 [git_status]
 # all_status == $conflicted$stashed$deleted$renamed$modified$staged$untracked
-format = '([$ahead_behind$conflicted$untracked$modified$deleted$staged$renamed$stashed]($style) )'
+format = '([$ahead_behind$conflicted$untracked$modified$deleted$staged$typechanged$renamed$stashed]($style) )'
 style = 'bold red'
 ahead = "[\u2191$count](bold blue)" # '⇡'
 behind = "[\u2193$count](bold purple)" # '⇣'
@@ -68,6 +67,7 @@ modified = " [~$count](bold yellow)" # '!' \uf046
 staged = " [+$count](bold yellow)" # '+' \uf044
 renamed = " [»$count](bold yellow)" # '»'
 deleted = " [-$count](bold red)" # '✘' \uf046
+typechanged = " [~](bold purple)" # ''
 ignore_submodules = false
 windows_starship = '/mnt/c/Program Files/starship/bin/starship.exe'
 
@@ -121,10 +121,15 @@ version_format = '${raw}'
 symbol = "\uf0e7"
 style = 'bold yellow'
 
+[kubernetes]
+symbol = "⎈"
+format = '[$symbol](bright-black) [$context( \($namespace\))]($style)'
+disabled = false
+
 [time]
 format = '[$time]($style)'
 style = 'bold dimmed white'
-disabled = false
+disabled = true
 
 # Disable the package module, hiding it from the prompt completely
 [package]
