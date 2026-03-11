@@ -79,7 +79,6 @@ zstyle :compinstall filename '/home/remy/.zshrc'
 # completion
 autoload -Uz compinit
 compinit
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # plugins
 plugins=(
@@ -95,11 +94,12 @@ LIBVA_DRIVER_NAME="iHD" # iHD|nvidia
 VDPAU_DRIVER="va_gl" # va_gl|nvidia
 
 # colors
+eval $(dircolors -b)
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias ls='ls --color=auto'
-eval $(dircolors -b)
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # colored man pages
 export LESS='-R --use-color -Dd+C$DuR$'
