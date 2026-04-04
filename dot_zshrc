@@ -89,6 +89,9 @@ for plugin in $plugins; do
     [[ -f $plugin ]] && source $plugin
 done
 
+# path
+export PATH="$HOME/.local/bin:$PATH"
+
 # hardware acceleration (intel|nvidia)
 LIBVA_DRIVER_NAME="iHD" # iHD|nvidia
 VDPAU_DRIVER="va_gl" # va_gl|nvidia
