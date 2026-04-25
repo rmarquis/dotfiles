@@ -91,6 +91,7 @@ done
 
 # path
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # hardware acceleration (intel|nvidia)
 LIBVA_DRIVER_NAME="iHD" # iHD|nvidia
