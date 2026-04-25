@@ -48,7 +48,7 @@ else
 COMMON_PROMPT='%B%F{white}%n%f%F{cyan}@%f%F{white}%m%f%F{cyan}:%f%b%~ '
 
 # update prompt based on vim mode
-function zle-line-init zle-keymap-select {
+function _update_vim_prompt() {
 case ${KEYMAP} in
     vicmd)
         PS1="${COMMON_PROMPT}%B%F{yellow}%(!.#.<)%f%b "
@@ -62,9 +62,18 @@ esac
 zle reset-prompt
 }
 
+# show transient prompt with left prompt only
+function _transient_prompt() {
+    local command="$BUFFER"
+    printf '\r\e[2K'
+    print -nP "$PROMPT"
+    printf '%s' "$command"
+}
+
 # register ZLE functions
-zle -N zle-line-init
-zle -N zle-keymap-select
+zle -N zle-line-init _update_vim_prompt
+zle -N zle-keymap-select _update_vim_prompt
+zle -N zle-line-finish _transient_prompt
 
 # initial prompt
 PS1="${COMMON_PROMPT}%B%F{cyan}%(!.#.>)%f%b "
