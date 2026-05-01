@@ -65,9 +65,14 @@ zle reset-prompt
 # show transient prompt with left prompt only
 function _transient_prompt() {
     local command="$BUFFER"
+    # Suppress job notifications during redraw
+    setopt localoptions no_notify
+    # Atomic clear + redraw
     printf '\r\e[2K'
     print -nP "$PROMPT"
     printf '%s' "$command"
+    # Tell ZLE this is now the correct display state
+    zle -R
 }
 
 # register ZLE functions
